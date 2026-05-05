@@ -26,6 +26,11 @@ jobs:
     needs: [PrintLanguageVersions]
 
     steps:
+      - name: Install MongoDB
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mongodb
+        
       - name: Print PostgreSQL Version
         run: psql --version
 
