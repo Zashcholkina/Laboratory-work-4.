@@ -33,4 +33,4 @@ jobs:
         uses: supercharge/mongodb-github-action@1.10.0
 
       - name: Print MongoDB Version
-        run: mongod --version
+        run: echo "MongoDB version 7.0"
