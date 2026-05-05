@@ -1,0 +1,21 @@
+name: Data Schema Code Convention
+
+on:
+  push:
+    branches:
+      - main
+      - LW11
+
+jobs:
+  SQLLinter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install SQLFluff
+        run: pip install sqlfluff
+
+      - name: Run SQL Linter
+        run: sqlfluff lint $GITHUB_WORKSPACE/DataSchema.sql --dialect oracle
