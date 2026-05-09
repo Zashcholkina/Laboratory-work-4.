@@ -1,0 +1,38 @@
+{
+  "user": {
+    "user_id": 1
+  },
+
+  "water_info": [
+    {
+      "properties": "Clean mineral water",
+      "recommendations": "Drink 2 liters daily"
+    }
+  ],
+
+  "water_consumption": [
+    {
+      "volume": 1.5
+    }
+  ],
+
+  "support_tools": {
+    "relaxation_tools": [
+      {
+        "name": "Breathing exercise"
+      }
+    ],
+    "emotional_support": [
+      {
+        "name": "Meditation session"
+      }
+    ]
+  },
+
+  "result": [
+    {
+      "type": "text",
+      "content": "You are relaxed"
+    }
+  ]
+}
