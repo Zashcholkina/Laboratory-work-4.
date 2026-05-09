@@ -15,18 +15,18 @@ CREATE TABLE WATER_INFO (
     USER_ID NUMBER NOT NULL,
 
     CONSTRAINT FK_WATER_USER
-        FOREIGN KEY (USER_ID)
-        REFERENCES USER_ACCOUNT (USER_ID),
+    FOREIGN KEY (USER_ID)
+    REFERENCES USER_ACCOUNT (USER_ID),
 
     CONSTRAINT CHK_PROPERTIES_FORMAT
-        CHECK (
-            PROPERTIES ~ '^[A-Za-zА-Яа-я0-9 ,.-]+$'
-        ),
+    CHECK (
+        PROPERTIES ~ '^[A-Za-zА-Яа-я0-9 ,.-]+$'
+    ),
 
     CONSTRAINT CHK_RECOMMENDATIONS_FORMAT
-        CHECK (
-            RECOMMENDATIONS ~ '^[A-Za-zА-Яа-я0-9 ,.-]+$'
-        )
+    CHECK (
+        RECOMMENDATIONS ~ '^[A-Za-zА-Яа-я0-9 ,.-]+$'
+    )
 );
 
 -- =========================
@@ -38,13 +38,13 @@ CREATE TABLE WATER_CONSUMPTION (
     USER_ID NUMBER NOT NULL,
 
     CONSTRAINT FK_CONSUMPTION_USER
-        FOREIGN KEY (USER_ID)
-        REFERENCES USER_ACCOUNT (USER_ID),
+    FOREIGN KEY (USER_ID)
+    REFERENCES USER_ACCOUNT (USER_ID),
 
     CONSTRAINT CHK_VOLUME_POSITIVE
-        CHECK (
-            VOLUME > 0
-        )
+    CHECK (
+        VOLUME > 0
+    )
 );
 
 -- =========================
@@ -56,9 +56,9 @@ CREATE TABLE SUPPORT_TOOL (
     TOOL_CATEGORY VARCHAR(30) NOT NULL,
 
     CONSTRAINT CHK_TOOL_NAME
-        CHECK (
-            TOOL_NAME ~ '^[A-Za-zА-Яа-я0-9 ]+$'
-        )
+    CHECK (
+        TOOL_NAME ~ '^[A-Za-zА-Яа-я0-9 ]+$'
+    )
 );
 
 -- =========================
@@ -68,8 +68,8 @@ CREATE TABLE RELAXATION_TOOL (
     TOOL_ID NUMBER PRIMARY KEY,
 
     CONSTRAINT FK_RELAX_TOOL
-        FOREIGN KEY (TOOL_ID)
-        REFERENCES SUPPORT_TOOL (TOOL_ID)
+    FOREIGN KEY (TOOL_ID)
+    REFERENCES SUPPORT_TOOL (TOOL_ID)
 );
 
 -- =========================
@@ -79,8 +79,8 @@ CREATE TABLE EMOTIONAL_SUPPORT (
     TOOL_ID NUMBER PRIMARY KEY,
 
     CONSTRAINT FK_EMOTIONAL_TOOL
-        FOREIGN KEY (TOOL_ID)
-        REFERENCES SUPPORT_TOOL (TOOL_ID)
+    FOREIGN KEY (TOOL_ID)
+    REFERENCES SUPPORT_TOOL (TOOL_ID)
 );
 
 -- =========================
@@ -93,11 +93,11 @@ CREATE TABLE RESULT (
     TOOL_ID NUMBER NOT NULL,
 
     CONSTRAINT FK_RESULT_TOOL
-        FOREIGN KEY (TOOL_ID)
-        REFERENCES SUPPORT_TOOL (TOOL_ID),
+    FOREIGN KEY (TOOL_ID)
+    REFERENCES SUPPORT_TOOL (TOOL_ID),
 
     CONSTRAINT CHK_RESULT_TYPE
-        CHECK (
-            RESULT_TYPE IN ('audio', 'text', 'exercise')
-        )
+    CHECK (
+        RESULT_TYPE IN ('audio', 'text', 'exercise')
+    )
 );
